@@ -1,0 +1,6 @@
+2020-05-07 23:00:40,208 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 39.105.151.133:80
+2020-05-07 23:00:40,965 - urllib3.connectionpool - DEBUG - http://39.105.151.133:80 "POST /portal/forward?service=/ecard/v1/sign/info HTTP/1.1" 200 420
+2020-05-07 23:00:40,967 - root - INFO - {'channelNo': 2000000000, 'aab301': '', 'aac002': 130684199002281073, 'aac003': '王小三'}
+2020-05-07 23:01:52,921 - connectionpool.py - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 39.105.151.133:80
+2020-05-07 23:01:53,436 - connectionpool.py - urllib3.connectionpool - DEBUG - http://39.105.151.133:80 "POST /portal/forward?service=/ecard/v1/sign/info HTTP/1.1" 200 420
+2020-05-07 23:01:53,438 - test_1_signinfo.py - root - INFO - {'channelNo': 2000000000, 'aab301': '', 'aac002': 130684199002281073, 'aac003': '王小三'}

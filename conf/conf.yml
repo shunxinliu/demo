@@ -1,0 +1,15 @@
+#缩进不能用tab，只能用空格
+host: http://127.0.0.1
+channelNo: 2000000001
+aac002: 230684199002281073
+aac003: 王小三
+aac067: 13666666666
+accessKey: 88b925edca3945cb8d6525481058bcd6
+header:
+    Accept-Language: zh-cn
+    Accept: application/json, text/plain, */*
+    X-Requested-With: XMLHttpRequest
+    Content-Type: application/json;charset=UTF-8
+    Cache-Control: no-cache
+    Accept-Encoding: gzip, deflate
+    User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 JinbaoxinClient
