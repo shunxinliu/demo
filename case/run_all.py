@@ -27,7 +27,7 @@ class RunAll(unittest.TestCase):
         # suite.addTests([TestSignInfo('test_signinfo')])
         suite = unittest.defaultTestLoader.discover(case_path,'test_*.py')
         f = open("./report/report.html", 'wb') # 二进制写格式打开要生成的报告文件
-        HTMLTestRunner(stream=f,title="Api Test中文",description="测试描述",tester='刘').run(suite)
+        HTMLTestRunner(stream=f,title="电子社保卡巡检",description="测试描述",tester='刘').run(suite)
         f.close()
 
 

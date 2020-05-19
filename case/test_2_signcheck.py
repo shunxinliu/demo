@@ -22,7 +22,7 @@ class TestSignCheck(unittest.TestCase):
         print(data)
         print(res.text)
         self.assertIn('成功', res.text, msg='实卡认证失败')
-        gl.set_value('signSeq',json.loads(res.text['result']['signSeq']))
+        gl.set_value('signSeq',json.loads(res.text)['result']['signSeq'])
         userlog = UserLog()
         loger = userlog.get_log()
         loger.info(url)

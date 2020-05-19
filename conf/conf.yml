@@ -1,10 +1,11 @@
 #缩进不能用tab，只能用空格
-host: http://127.0.0.1
-channelNo: 2000000001
+host: http://39.105.151.133
+channelNo: 2000000000
 aac002: 130684199002281073
-aac003: 王小
+aac003: 王小三
 aac067: 13666666666
 accessKey: 88b925edca3945cb8d6525481058bcd6
+pwd: 92c7d71b95dc6540fc58e891dbe649fe72ae5e93b5f42fd7fbdeefe6cef3e51d          #111222
 header:
     Accept-Language: zh-cn
     Accept: application/json, text/plain, */*
