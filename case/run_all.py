@@ -1,8 +1,9 @@
 import unittest
 import os
+import sys
+sys.path.append('../')
 from report.HTMLTestReportCN import HTMLTestRunner
-# import sys
-# sys.path.append('../')
+
 # print(sys.path)
 #from log.loggers import UserLog
 from case.test_0_tokensign import TestSign
@@ -25,7 +26,7 @@ class RunAll(unittest.TestCase):
         # suite.addTests([TestSign('test_a_token_sign'),TestSign('test_gettoken')])
         # suite.addTests([TestSignInfo('test_signinfo')])
         suite = unittest.defaultTestLoader.discover(case_path,'test_*.py')
-        f = open("../report/report.html", 'wb') # 二进制写格式打开要生成的报告文件
+        f = open("./report/report.html", 'wb') # 二进制写格式打开要生成的报告文件
         HTMLTestRunner(stream=f,title="Api Test中文",description="测试描述",tester='刘').run(suite)
         f.close()
 
