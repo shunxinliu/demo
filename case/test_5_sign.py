@@ -15,6 +15,7 @@ class TestSign(unittest.TestCase):
         url = content['host']+'/portal/forward?service=/ecard/v1/sign'
         data = {"channelNo":content['channelNo'],"aab301":gl.get_value('aab301'),"aac002":content['aac002'],"aac003":content['aac003'],"signSeq":gl.get_value('signSeq')}
         res = requests.post(url=url,data=json.dumps(data),headers=gl.get_value('headers'))
+        gl.set_value("signNo",json.loads(res.text)['result']['signNo'])
         self.assertIn("成功",res.text,msg="一级签发失败")
         userlog = UserLog()
         loger = userlog.get_log()
