@@ -1,6 +1,6 @@
 import json
 import unittest
-
+import traceback
 import requests
 import yaml
 import sys
@@ -24,6 +24,7 @@ class TestSign(unittest.TestCase):
     def setUpClass(cls):
         cls.userlog = UserLog()
         cls.loger = cls.userlog.get_log()
+        cls.error = traceback.format_exc()
 
     @classmethod
     def tearDownClass(cls):
@@ -36,29 +37,36 @@ class TestSign(unittest.TestCase):
         url = content['host']+'/portal/token/sign'
         data = {"aac002": " ", "aac003": "", "accessKey": content['accessKey'],
                 "channelNo": content['channelNo']}
-        res = requests.post(url,data=json.dumps(data),headers=content['header'])
-        print(json.loads(res.text))
-        print(json.loads(res.text)['result'])
-        #gl.set_value("result",json.loads(res.text)['result'])
-        self.assertIn('成功', res.text, msg='验签失败')
-        globals()["result"] = json.loads(res.text)['result']
-        self.loger.info(url)
-        self.loger.info(data)
-        self.loger.info(res.text)
-
+        try:
+            res = requests.post(url,data=json.dumps(data),headers=content['header'])
+            print(json.loads(res.text))
+            print(json.loads(res.text)['result'])
+            #gl.set_value("result",json.loads(res.text)['result'])
+            globals()["result"] = json.loads(res.text)['result']
+            self.loger.info(url)
+            self.loger.info(data)
+            self.loger.info(res.text)
+        except:
+            self.loger.error(self.error)
+        finally:
+            self.assertIn('成功', res.text, msg='验签失败')
 
     #获取token
     def test_gettoken(self):
         url = content['host']+'/api/token'
         params = globals()["result"]
-        res = requests.get(url,params=params)
-        print(type(res.text))
-        gl.set_value("X-TOKEN",(json.loads(res.text)['result']['token']))
-        print("sss"+gl.get_value('X-TOKEN'))
-        self.assertIn('成功', res.text, msg='获取token失败')
-        self.loger.info(url)
-        self.loger.info(params)
-        self.loger.info(res.text)
+        try:
+            res = requests.get(url,params=params)
+            print(type(res.text))
+            gl.set_value("X-TOKEN",(json.loads(res.text)['result']['token']))
+            print("sss"+gl.get_value('X-TOKEN'))
+            self.loger.info(url)
+            self.loger.info(params)
+            self.loger.info(res.text)
+        except:
+            self.loger.error(self.error)
+        finally:
+            self.assertIn('成功', res.text, msg='获取token失败')
 
 
 # if __name__ == '__main__':
