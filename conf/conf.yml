@@ -13,4 +13,5 @@ header:
     Content-Type: application/json;charset=UTF-8
     Cache-Control: no-cache
     Accept-Encoding: gzip, deflate
+    Essc-Referer: http://39.105.151.133/main
     User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 JinbaoxinClient
