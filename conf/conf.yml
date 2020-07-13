@@ -1,19 +1,18 @@
 #缩进不能用tab，只能用空格
-host: https://ssc.mohrss.gov.cn      #39.105.151.133
-channelNo: 9900000099 #  2000000000
-aac002: 130684199002281070
-aac003: 刘顺心
+host: https://127.0.0.1
+channelNo: 0000000000
+aac002: 130684199002281111
+aac003: 张三
 aac067: 13666666666
-accessKey: 2cee1e67858440688c4a5e3d14ed4f03 #88b925edca3945cb8d6525481058bcd6
+accessKey: 111111
 pwd: 92c7d71b95dc6540fc58e891dbe649fe72ae5e93b5f42fd7fbdeefe6cef3e51d          #111222
 header:
     Accept-Language: zh-cn
     Accept: application/json, text/plain, */*
     X-Requested-With: XMLHttpRequest
-    Content-Type1: application/json;charset=UTF-8
     Cache-Control: no-cache
     Accept-Encoding: gzip, deflate
     Essc-Referer: http://127.0.0.1/main
     User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 JinbaoxinClient
-    Essc-Referer: https://ssc.mohrss.gov.cn/main
-    api_access_key: 2cee1e67858440688c4a5e3d14ed4f03
+    Essc-Referer: http://127.0.0.1
+    api_access_key: 1111111
