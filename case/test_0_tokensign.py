@@ -5,7 +5,7 @@ import requests
 import yaml
 import sys
 sys.path.append('../')
-
+import copy
 from conf import globalvar as gl
 from log.loggers import UserLog
 
@@ -37,8 +37,10 @@ class TestSign(unittest.TestCase):
         url = content['host']+'/portal/token/sign'
         data = {"aac002": " ", "aac003": "", "accessKey": content['accessKey'],
                 "channelNo": content['channelNo']}
+        scontent = copy.deepcopy(content['header'])
+        scontent['Content-Type'] = "application/json;charset=UTF-8"
         try:
-            res = requests.post(url,data=json.dumps(data),headers=content['header'])
+            res = requests.post(url,data=json.dumps(data),headers=scontent)
             print(json.loads(res.text))
             print(json.loads(res.text)['result'])
             #gl.set_value("result",json.loads(res.text)['result'])
@@ -56,7 +58,7 @@ class TestSign(unittest.TestCase):
         url = content['host']+'/api/token'
         params = globals()["result"]
         try:
-            res = requests.get(url,params=params)
+            res = requests.get(url,params=params,headers=content['header'])
             print(type(res.text))
             gl.set_value("X-TOKEN",(json.loads(res.text)['result']['token']))
             print("sss"+gl.get_value('X-TOKEN'))
@@ -65,7 +67,9 @@ class TestSign(unittest.TestCase):
             self.loger.info(res.text)
         except:
             self.loger.error(self.error)
+            self.loger.info(content['header'])
         finally:
+            print(type(res.text))
             self.assertIn('成功', res.text, msg='获取token失败')
 
 
